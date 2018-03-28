@@ -5,9 +5,13 @@ const mongoose = require('mongoose');
 const app = express();
 
 
+
 //connect to mongodb
 mongoose.connect('mongodb://localhost/ninjago');
 mongoose.Promise = global.Promise;
+
+//set up static files
+app.use(express.static('public'));
 
 //Body Parser
 app.use(bodyParser.json());

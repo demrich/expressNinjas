@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Ninja = require('../models/ninja');
 
-//get list of ninjas from the db
+router.get('/ninjas', (req, res, next) => {
+    //get list of ninjas from the db
 
    /* Find ALL the ninjas
    Ninja.find({})
@@ -17,8 +18,6 @@ const Ninja = require('../models/ninja');
    - think ? 
    */
 /////////////////////
-
-router.get('/ninjas', (req, res, next) => {
     Ninja.aggregate([
         {
             $geoNear: {
